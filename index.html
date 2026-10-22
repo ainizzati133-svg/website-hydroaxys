@@ -5,133 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Hydroaxys</title>
     <style>
-        /* Gaya Asas & Font */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        /* Gaya Asas & Font Antarabangsa */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7f9;
+            background-color: #f7f9f8; /* Latar belakang kelabu kehijauan lembut */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         /* Kotak Borang Utama */
         .form-container {
             background-color: #ffffff;
-            max-width: 650px;
+            max-width: 700px;
             width: 100%;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            animation: fadeIn 0.6s ease-out; /* Animasi masuk */
+            padding: 45px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-top: 5px solid #059669; /* Garis hijau korporat di atas */
+            animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Tajuk & Teks */
         h1 {
-            color: #0f3d6e; /* Warna biru gelap seakan gambar */
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            color: #064e3b; /* Hijau paling gelap (Dark Green) */
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
             margin-top: 0;
+            letter-spacing: -0.5px;
         }
 
         p.subtitle {
-            color: #154c8a;
-            font-size: 15px;
-            margin-bottom: 30px;
+            color: #4b5563;
+            font-size: 16px;
+            margin-bottom: 35px;
+            line-height: 1.5;
         }
 
-        /* Susunan Grid untuk Nama */
-        .name-grid {
+        /* Susunan Grid */
+        .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-        }
-
-        /* Gaya Kumpulan Input */
-        .input-group {
             margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
         }
 
+        /* Ruangan Sebaris (Penuh) */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Gaya Label */
         label {
+            display: block;
             font-size: 14px;
             font-weight: 600;
-            color: #0f3d6e;
+            color: #374151;
             margin-bottom: 8px;
+        }
+
+        label span.required {
+            color: #ef4444; /* Bintang merah untuk ruangan wajib */
         }
 
         /* Gaya Kotak Input & Textarea */
         input[type="text"],
         input[type="email"],
+        input[type="tel"],
+        select,
         textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px 16px;
             border: 1px solid #d1d5db;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 15px;
             font-family: inherit;
+            color: #1f2937;
+            background-color: #ffffff;
             box-sizing: border-box;
-            transition: all 0.3s ease; /* Animasi UX */
+            transition: all 0.3s ease;
         }
 
         textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
+            line-height: 1.5;
         }
 
-        /* Animasi semasa pengguna klik kotak input (Focus) */
-        input:focus, textarea:focus {
+        /* Animasi semasa pengguna klik kotak input (Focus Effect warna Hijau) */
+        input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            border-color: #10b981; /* Emerald Green */
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+            background-color: #f8fafc;
         }
 
         input::placeholder, textarea::placeholder {
             color: #9ca3af;
+            font-weight: 400;
+        }
+
+        /* Gaya Checkbox Privacy */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            grid-column: span 2;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-top: 4px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #059669;
+        }
+
+        .checkbox-container label {
+            font-size: 13px;
+            color: #4b5563;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 0;
+            cursor: pointer;
         }
 
         /* Butang Hantar */
         button {
-            background-color: #0f3d6e;
+            background-color: #059669; /* Emerald Hijau Gelap */
             color: white;
             font-weight: 600;
             font-size: 16px;
-            padding: 14px 20px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin-top: 10px;
+            width: auto;
+            min-width: 180px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(5, 150, 105, 0.2);
         }
 
         /* Animasi Butang */
         button:hover {
-            background-color: #1e5b9f;
+            background-color: #047857; /* Lebih gelap bila hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(5, 150, 105, 0.3);
         }
         button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
 
         /* Responsif untuk skrin kecil (Telefon) */
-        @media (max-width: 500px) {
-            .name-grid {
+        @media (max-width: 600px) {
+            .form-grid {
                 grid-template-columns: 1fr;
-                gap: 0;
+                gap: 15px;
+            }
+            .full-width {
+                grid-column: span 1;
             }
             .form-container {
-                padding: 25px;
+                padding: 30px 25px;
+            }
+            button {
+                width: 100%;
             }
         }
     </style>
@@ -140,47 +189,71 @@
 
     <div class="form-container">
         <h1>Contact Hydroaxys</h1>
-        <p class="subtitle">Please provide your details and inquiry information below.</p>
+        <p class="subtitle">Whether you're looking for project support or have questions about our services, we're here to help.</p>
 
         <form action="https://api.web3forms.com/submit" method="POST">
             <!-- GANTI ACCESS KEY DI SINI -->
             <input type="hidden" name="access_key" value="7ed67e77-97ac-4d74-af5f-3468623e79e5">
             
-            <!-- Honeypot untuk elak spam bot -->
+            <!-- Mengelakkan spam -->
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-            <div class="name-grid">
-                <div class="input-group">
-                    <label>First Name *</label>
+            <div class="form-grid">
+                
+                <!-- Nama Penuh (Separuh) -->
+                <div>
+                    <label>First Name <span class="required">*</span></label>
                     <input type="text" name="First Name" required>
                 </div>
-                <div class="input-group">
-                    <label>Last Name *</label>
+                <div>
+                    <label>Last Name <span class="required">*</span></label>
                     <input type="text" name="Last Name" required>
                 </div>
+
+                <!-- Emel & Nombor Telefon (Separuh) -->
+                <div>
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" name="Email" required>
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    <input type="tel" name="Phone Number">
+                </div>
+
+                <!-- Nama Syarikat (Penuh) -->
+                <div class="full-width">
+                    <label>Company Name <span class="required">*</span></label>
+                    <input type="text" name="Company Name" required>
+                </div>
+
+                <!-- Dropdown Aplikasi/Servis (Penuh) - Gaya OTT -->
+                <div class="full-width">
+                    <label>Application / Area of Interest <span class="required">*</span></label>
+                    <select name="Application" required>
+                        <option value="" disabled selected>Please select an option...</option>
+                        <option value="Water Quality">Water - Quality</option>
+                        <option value="Flood Warning">Water - Flood / Warning</option>
+                        <option value="Surface Water">Water - Surface Level / Flow</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Mesej / Komen (Penuh) -->
+                <div class="full-width">
+                    <label>Questions / Comments <span class="required">*</span></label>
+                    <textarea name="Comments" placeholder="Please describe your project or inquiry in detail..." required></textarea>
+                </div>
+
+                <!-- Persetujuan Data -->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="consent" name="Consent" required>
+                    <label for="consent">I agree to receive communications from Hydroaxys and understand my data will be handled securely.</label>
+                </div>
+
             </div>
 
-            <div class="input-group">
-                <label>Email Address *</label>
-                <input type="email" name="Email" placeholder="email@company.com" required>
-            </div>
-
-            <div class="input-group">
-                <label>Company Name *</label>
-                <input type="text" name="Company Name" required>
-            </div>
-
-            <div class="input-group">
-                <label>Subject *</label>
-                <input type="text" name="Subject" placeholder="How can we help you?" required>
-            </div>
-
-            <div class="input-group">
-                <label>Message *</label>
-                <textarea name="Message" placeholder="Please describe your project or inquiry in detail..." required></textarea>
-            </div>
-
-            <button type="submit">Submit Inquiry</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
