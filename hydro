@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syarikat Hydroaxys</title>
+</head>
+<body>
+    <h1>Hubungi Hydroaxys</h1>
+    <p>Sila tinggalkan mesej dan kami akan hubungi anda segera.</p>
+
+    <!-- Pastikan anda tukar YOUR_ACCESS_KEY_HERE dengan Access Key sebenar dari Web3Forms -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7ed67e77-97ac-4d74-af5f-3468623e79e5">
+        
+        <input type="text" name="name" placeholder="Nama Penuh" required><br><br>
+        <input type="email" name="email" placeholder="Emel Anda" required><br><br>
+        <textarea name="message" placeholder="Tinggalkan mesej..." required></textarea><br><br>
+        
+        <button type="submit">Hantar Pertanyaan</button>
+    </form>
+</body>
+</html>
